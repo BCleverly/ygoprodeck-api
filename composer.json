@@ -1,24 +1,26 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "bcleverly/ygoprodeck-api",
+    "description": "This is my package ygoprodeck-api",
     "keywords": [
-        ":vendor_name",
+        "BCleverly",
         "laravel",
-        ":package_slug"
+        "ygoprodeck-api"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/bcleverly/ygoprodeck-api",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Ben",
+            "email": "ben@bencleverly.dev",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.2",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^10.0||^11.0"
+        "illuminate/contracts": "^10.0||^11.0",
+        "saloonphp/cache-plugin": "3.0",
+        "saloonphp/saloon": "3.0",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -35,19 +37,19 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "BCleverly\\YgoprodeckApi\\": "src/",
+            "BCleverly\\YgoprodeckApi\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "BCleverly\\YgoprodeckApi\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
     "scripts": {
         "post-autoload-dump": "@composer run prepare",
-        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "clear": "@php vendor/bin/testbench package:purge-ygoprodeck-api --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "build": [
             "@composer run prepare",
@@ -73,10 +75,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "BCleverly\\YgoprodeckApi\\YgoprodeckApiServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "YgoprodeckApi": "BCleverly\\YgoprodeckApi\\Facades\\YgoprodeckApi"
             }
         }
     },

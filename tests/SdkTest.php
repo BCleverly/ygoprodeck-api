@@ -18,7 +18,7 @@ test('api returns all cards', function () {
 
     expect($response->status())
         ->toBeInt()
-        ->toBe(Response::HTTP_OK);// 200
+        ->toBe(Response::HTTP_OK); // 200
 
 });
 

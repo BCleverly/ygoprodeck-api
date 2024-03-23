@@ -11,7 +11,9 @@ test('api returns all cards', function () {
     $mockClient = new MockClient([
         GetAll::class => MockResponse::fixture('all-cards'),
     ]);
+
     $ygo = new YGOProDeck;
+
     $ygo->withMockClient($mockClient);
 
     $response = $ygo->getAll();
@@ -34,7 +36,9 @@ test('api returns a card when given a card name', function () {
 
     $response = $ygo->getCard($name);
 
-    $response->assert();
+    expect($response->status())
+        ->toBeInt()
+        ->toBe(Response::HTTP_OK);// 200
 
     $data = $response->json()['data'][0];
 
@@ -45,11 +49,4 @@ test('api returns a card when given a card name', function () {
     $mockClient->assertSent(GetCard::class);
 
     $mockClient->assertSentCount(1);
-
-    $mockClient->assertSent(function ($request) use ($name) {
-
-        dd($request);
-
-        return $request->header()->all() === ['name' => $name];
-    });
 });

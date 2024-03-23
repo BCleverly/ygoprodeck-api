@@ -38,7 +38,7 @@ test('api returns a card when given a card name', function () {
 
     expect($response->status())
         ->toBeInt()
-        ->toBe(Response::HTTP_OK);// 200
+        ->toBe(Response::HTTP_OK); // 200
 
     $data = $response->json()['data'][0];
 
